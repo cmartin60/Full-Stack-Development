@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Department } from '../data';
+import type { Department } from '../../types/datatypes';
 
 interface FormComponentsProps {
   onAddEmployee: (firstName: string, lastName: string, department: string) => void;
@@ -73,9 +73,9 @@ export default function formcomponents({ onAddEmployee, departments }: FormCompo
           onChange={handleChange}
         >
           <option value="">Select a Department</option>
-          {departments.map((dept) => (
-            <option key={dept.name} value={dept.name}>
-              {dept.name}
+          {departments.map((department) => (
+            <option key={department.name} value={department.name}>
+              {department.name}
             </option>
           ))}
         </select>

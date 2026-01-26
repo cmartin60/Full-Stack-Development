@@ -1,12 +1,5 @@
-export interface Employee {
-  firstName: string;
-  lastName: string;
-  department: string;
-}
-
-export interface Department {
-  name: string;
-}
+import type { Department } from '../types/datatypes';
+import type { Employee } from '../types/datatypes'; 
 
 export const departments: Department[] = [
   { name: "Administration" },

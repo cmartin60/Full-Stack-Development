@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { departments, employees as initialEmployees } from '../data';
-import type { Employee } from '../data';
+import type { Employee } from '../../types/datatypes';
 import Formcomponents from '../lab2.1/Formcomponents';
 
 export default function EmployeeDirectory() {
@@ -15,7 +15,7 @@ export default function EmployeeDirectory() {
     <>
       <main id="employee-directory">
         {departments.map((department) => {
-          const deptEmployees = employees.filter(emp => emp.department === department.name);
+          const deptEmployees = employees.filter(employees => employees.department === department.name);
           return (
             <section key={department.name}>
               <h2>{department.name}</h2>
