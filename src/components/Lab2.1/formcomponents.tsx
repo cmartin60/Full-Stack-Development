@@ -6,7 +6,7 @@ interface FormComponentsProps {
   departments: Department[];
 }
 
-export default function formcomponents({ onAddEmployee, departments }: FormComponentsProps) {
+export default function Formcomponents({ onAddEmployee, departments }: FormComponentsProps) {
   const [form, setForm] = useState({ firstName: '', lastName: '', department: '' });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
