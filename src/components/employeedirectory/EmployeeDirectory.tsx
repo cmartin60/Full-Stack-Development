@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { departments, employees as initialEmployees } from '../../data/data';
 import type { Employee } from '../../types/employee';
-import Formcomponents from '../lab2.1/Formcomponents';
+import Formcomponents from '../lab2.1/Formcomponents.tsx';
 
 export default function EmployeeDirectory() {
   const [employees, setEmployees] = useState<Employee[]>(initialEmployees);
