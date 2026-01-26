@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Department } from '../../types/datatypes';
+import type { Department } from '../../types/department';
 
 interface FormComponentsProps {
   onAddEmployee: (firstName: string, lastName: string, department: string) => void;

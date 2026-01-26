@@ -1,5 +1,5 @@
-import type { Department } from '../types/datatypes';
-import type { Employee } from '../types/datatypes'; 
+import type { Employee } from '../types/employee';
+import type { Department } from '../types/department';
 
 export const departments: Department[] = [
   { name: "Administration" },

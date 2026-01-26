@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { departments, employees as initialEmployees } from '../data';
-import type { Employee } from '../../types/datatypes';
+import { departments, employees as initialEmployees } from '../../data/data';
+import type { Employee } from '../../types/employee';
 import Formcomponents from '../lab2.1/Formcomponents';
 
 export default function EmployeeDirectory() {
