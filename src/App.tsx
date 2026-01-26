@@ -1,15 +1,17 @@
-import Footer from './components/footer'
-import Header from './components/header'
-import EmplyoyeeDirectory from './components/EmployeeDirectory'
+import Header from './components/layout/header/header'
+import Footer from './components/layout/footer/footer'
+import { Employees } from './components/employee/EmployeeDirectory'
 
 import './App.css'
+
+
 
 function App() {
 
   return (
     <>
       <Header />
-      <EmplyoyeeDirectory />
+      <Employees />
       <Footer />
     </>
   )
