@@ -5,6 +5,10 @@ export default function Formcomponents() {
         First Name: <input name="FirstName" />
       </label>
       <br></br>
+      <label id = "LastName">
+        Last Name: <input name="LastName" />
+      </label>
+      <br></br>
       <label id ="Department">Department:</label>
         <select name="Department" id="Department">
             <option value="Administration">Administration</option>

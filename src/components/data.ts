@@ -1,103 +1,66 @@
 export interface Employee {
   firstName: string;
   lastName: string;
+  department: string;
 }
 
 export interface Department {
   name: string;
-  employees: Employee[];
 }
 
 export const departments: Department[] = [
-  {
-    name: "Administration",
-    employees: [
-      { firstName: "Zoë", lastName: "Robins" },
-      { firstName: "Madeleine", lastName: "Madden" }
-    ]
-  },
-  {
-    name: "Audit",
-    employees: [
-      { firstName: "Josha", lastName: "Sadowski" },
-      { firstName: "Kate", lastName: "Fleetwood" }
-    ]
-  },
-  {
-    name: "Banking Operations",
-    employees: [
-      { firstName: "Priyanka", lastName: "Bose" },
-      { firstName: "Hammed", lastName: "Animashaun" },
-      { firstName: "Álvaro", lastName: "Morte" },
-      { firstName: "Taylor", lastName: "Napier" },
-      { firstName: "Alan", lastName: "Simmonds" }
-    ]
-  },
-  {
-    name: "Communications",
-    employees: [
-      { firstName: "Gil", lastName: "Cardinal" },
-      { firstName: "Richard", lastName: "J. Lewis" }
-    ]
-  },
-  {
-    name: "Corporate Services",
-    employees: [
-      { firstName: "Randy", lastName: "Bradshaw" },
-      { firstName: "Tracey", lastName: "Cook" },
-      { firstName: "Lubomir", lastName: "Mykytiuk" }
-    ]
-  },
-  {
-    name: "Facilities",
-    employees: [
-      { firstName: "Dakota", lastName: "House" },
-      { firstName: "Lori", lastName: "Lea Okemah" },
-      { firstName: "Renae", lastName: "Morrisseau" },
-      { firstName: "Rick", lastName: "Belcourt" }
-    ]
-  },
-  {
-    name: "Financial Services",
-    employees: [
-      { firstName: "Selina", lastName: "Hanusa" },
-      { firstName: "Buffy", lastName: "Gaudry" },
-      { firstName: "Shaneen", lastName: "Ann Fox" },
-      { firstName: "Allan", lastName: "Little" },
-      { firstName: "Danny", lastName: "Rabbit" }
-    ]
-  },
-  {
-    name: "Human Resources",
-    employees: [
-      { firstName: "Jesse", lastName: "Ed Azure" },
-      { firstName: "Stacy", lastName: "Da Silva" },
-      { firstName: "Vladimír", lastName: "Valenta" },
-      { firstName: "Samone", lastName: "Sayeses-Whitney" },
-      { firstName: "Paul", lastName: "Coeur" }
-    ]
-  },
-  {
-    name: "Information Technology",
-    employees: [
-      { firstName: "Graham", lastName: "Greene" },
-      { firstName: "Sandika", lastName: "Evergreen" },
-      { firstName: "Jennifer", lastName: "Rodriguez" }
-    ]
-  },
-  {
-    name: "IT Technician",
-    employees: [
-      { firstName: "Aiyana", lastName: "Littlebear" },
-      { firstName: "Inara", lastName: "Thunderbird" },
-      { firstName: "Kaya", lastName: "Runningbrook" },
-      { firstName: "Elara", lastName: "Firehawk" },
-      { firstName: "Siona", lastName: "Moonflower" },
-      { firstName: "Kaiyu", lastName: "Greywolf" },
-      { firstName: "Ayawamat", lastName: "Nightwind" },
-      { firstName: "Tala", lastName: "Braveheart" },
-      { firstName: "Iniko", lastName: "Stonebear" },
-      { firstName: "Onatah", lastName: "Redhawk" }
-    ]
-  }
+  { name: "Administration" },
+  { name: "Audit" },
+  { name: "Banking Operations" },
+  { name: "Communications" },
+  { name: "Corporate Services" },
+  { name: "Facilities" },
+  { name: "Financial Services" },
+  { name: "Human Resources" },
+  { name: "Information Technology" },
+  { name: "IT Technician" }
+];
+
+export const employees: Employee[] = [
+  { firstName: "Zoë", lastName: "Robins", department: "Administration" },
+  { firstName: "Madeleine", lastName: "Madden", department: "Administration" },
+  { firstName: "Josha", lastName: "Sadowski", department: "Audit" },
+  { firstName: "Kate", lastName: "Fleetwood", department: "Audit" },
+  { firstName: "Priyanka", lastName: "Bose", department: "Banking Operations" },
+  { firstName: "Hammed", lastName: "Animashaun", department: "Banking Operations" },
+  { firstName: "Álvaro", lastName: "Morte", department: "Banking Operations" },
+  { firstName: "Taylor", lastName: "Napier", department: "Banking Operations" },
+  { firstName: "Alan", lastName: "Simmonds", department: "Banking Operations" },
+  { firstName: "Gil", lastName: "Cardinal", department: "Communications" },
+  { firstName: "Richard", lastName: "J. Lewis", department: "Communications" },
+  { firstName: "Randy", lastName: "Bradshaw", department: "Corporate Services" },
+  { firstName: "Tracey", lastName: "Cook", department: "Corporate Services" },
+  { firstName: "Lubomir", lastName: "Mykytiuk", department: "Corporate Services" },
+  { firstName: "Dakota", lastName: "House", department: "Facilities" },
+  { firstName: "Lori", lastName: "Lea Okemah", department: "Facilities" },
+  { firstName: "Renae", lastName: "Morrisseau", department: "Facilities" },
+  { firstName: "Rick", lastName: "Belcourt", department: "Facilities" },
+  { firstName: "Selina", lastName: "Hanusa", department: "Financial Services" },
+  { firstName: "Buffy", lastName: "Gaudry", department: "Financial Services" },
+  { firstName: "Shaneen", lastName: "Ann Fox", department: "Financial Services" },
+  { firstName: "Allan", lastName: "Little", department: "Financial Services" },
+  { firstName: "Danny", lastName: "Rabbit", department: "Financial Services" },
+  { firstName: "Jesse", lastName: "Ed Azure", department: "Human Resources" },
+  { firstName: "Stacy", lastName: "Da Silva", department: "Human Resources" },
+  { firstName: "Vladimír", lastName: "Valenta", department: "Human Resources" },
+  { firstName: "Samone", lastName: "Sayeses-Whitney", department: "Human Resources" },
+  { firstName: "Paul", lastName: "Coeur", department: "Human Resources" },
+  { firstName: "Graham", lastName: "Greene", department: "Information Technology" },
+  { firstName: "Sandika", lastName: "Evergreen", department: "Information Technology" },
+  { firstName: "Jennifer", lastName: "Rodriguez", department: "Information Technology" },
+  { firstName: "Aiyana", lastName: "Littlebear", department: "IT Technician" },
+  { firstName: "Inara", lastName: "Thunderbird", department: "IT Technician" },
+  { firstName: "Kaya", lastName: "Runningbrook", department: "IT Technician" },
+  { firstName: "Elara", lastName: "Firehawk", department: "IT Technician" },
+  { firstName: "Siona", lastName: "Moonflower", department: "IT Technician" },
+  { firstName: "Kaiyu", lastName: "Greywolf", department: "IT Technician" },
+  { firstName: "Ayawamat", lastName: "Nightwind", department: "IT Technician" },
+  { firstName: "Tala", lastName: "Braveheart", department: "IT Technician" },
+  { firstName: "Iniko", lastName: "Stonebear", department: "IT Technician" },
+  { firstName: "Onatah", lastName: "Redhawk", department: "IT Technician" }
 ];
