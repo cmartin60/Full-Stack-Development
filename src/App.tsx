@@ -1,7 +1,6 @@
-import Footer from './components/footer'
-import Header from './components/header'
-import EmployeeDirectory from './components/EmployeeDirectory'
-import Formcomponents from './components/Lab2.1/formcomponents'
+import Header from './components/layout/header/header'
+import Footer from './components/layout/footer/footer'
+import EmployeeDirectory from './components/employeedirectory/EmployeeDirectory'
 
 import './App.css'
 
@@ -12,7 +11,6 @@ function App() {
     <>
       <Header />
       <EmployeeDirectory />
-      <Formcomponents />
       <Footer />
     </>
   )
