@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Formcomponents from "../Lab2/formcomponents";
-import departmentData from "../../data/departments";
+import departmentData from "../../../data/departments";
+import styles from "./Employees.module.css";
 
 export function Employees() {
     const [departments, setDepartments] = useState(departmentData);
@@ -20,7 +21,7 @@ export function Employees() {
     const departmentListElement = departments.map(d => {
         return <section key={d.name}>
             <h2>{d.name}</h2>
-            <ul className="employees">
+            <ul className={styles.employees}>
                 {d.employees.map(e => <li key={`${e.firstName}-${e.lastName}`}>{e.firstName} {e.lastName}</li>)}
             </ul>
         </section>

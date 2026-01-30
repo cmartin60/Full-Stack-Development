@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import type { Department } from '../../types/department';
+import departmentData from '../../../data/departments';
 
 interface FormComponentsProps {
   onAddEmployee: (firstName: string, lastName: string, department: string) => void;
-  departments: Department[];
+  departments: typeof departmentData;
 }
 
 export default function Formcomponents({ onAddEmployee, departments }: FormComponentsProps) {
