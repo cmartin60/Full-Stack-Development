@@ -1,9 +1,11 @@
-const currentYear = new Date().getFullYear();
+import style from "./Footer.module.css";
 
-export default function Footer() {
-  return (
-    <footer>
-      Copyright Pixell River Financial <span id="year">{currentYear}</span>.
-    </footer>
-  );
+export function Footer() {
+    return(
+        <footer className={style.footer}>
+            <p>
+                Copyright Pixell River Financial {new Date().getFullYear()}
+            </p>
+        </footer>
+    )
 }
