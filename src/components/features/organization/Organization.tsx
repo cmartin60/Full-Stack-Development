@@ -5,8 +5,8 @@ export function Organization() {
     const leaders = organizationData.map(leader => {
         return (
             <li key={`${leader.firstName}-${leader.lastName}`} className={styles.leaderItem}>
-                <span>{leader.role}</span>
                 <span>{leader.firstName} {leader.lastName}</span>
+                <span>{leader.role}</span>
             </li>
         );
     });

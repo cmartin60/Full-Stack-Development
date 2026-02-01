@@ -1,6 +1,6 @@
-import type { Role } from "../types/role.ts";
+import type { Employee } from "../types/employee.ts";
 
-export const organizationData: Role[] = [
+export const organizationData: Employee[] = [
     { firstName: "Jo-Anne", lastName: "Sinclair", role: "CEO/Chair of Board" },
     { firstName: "Jackson", lastName: "Smith", role: "COO/VP Operations" },
     { firstName: "Susan", lastName: "Thomas", role: "CFO/VP Administration" },
