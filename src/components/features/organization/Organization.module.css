@@ -1,0 +1,22 @@
+.leaders {
+    list-style: none;
+    padding: 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.leaderItem {
+    display: flex;
+}
+
+.leaderItem span:first-child {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+}
+
+.leaderItem span:last-child {
+    flex: 1;
+    padding: 0.75rem 1rem;
+}
+
