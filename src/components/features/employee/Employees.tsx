@@ -1,21 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Formcomponents from "../Lab2/formcomponents";
-import departmentData from "../../../data/departments";
 import styles from "./Employees.module.css";
+import type { EmployeeRepository } from "../../../apis/employeeRepository";
+import type { EmployeeService } from "../../../services/employeeService";
+import type { Department } from "../../../types/department";
 
-export function Employees() {
-    const [departments, setDepartments] = useState(departmentData);
+interface EmployeesProps {
+  repository: EmployeeRepository;
+  service: EmployeeService;
+}
+
+export function Employees({ repository, service }: EmployeesProps) {
+    const [departments, setDepartments] = useState<Department[]>([]);
+
+    useEffect(() => {
+      const depts = repository.getDepartments();
+      setDepartments(depts);
+    }, [repository]);
 
     const handleAddEmployee = (firstName: string, lastName: string, departmentName: string) => {
-        if (!departmentName) {
-            return;
+        const result = service.createEmployee(firstName, lastName, departmentName);
+        
+        if (result.success) {
+          // Update local state from repository
+          setDepartments([...repository.getDepartments()]);
+        } else {
+          console.error('Failed to create employee:', result.errors);
         }
-
-        setDepartments(prev => prev.map(d => (
-            d.name === departmentName
-                ? { ...d, employees: [...d.employees, { firstName, lastName }] }
-                : d
-        )));
     };
 
     const departmentListElement = departments.map(d => {

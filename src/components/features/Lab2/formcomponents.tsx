@@ -1,39 +1,32 @@
-import { useState } from 'react';
-import departmentData from '../../../data/departments';
+import { useFormInput } from '../../../hooks/useFormInput';
+import type { Department } from '../../../types/department';
 
 interface FormComponentsProps {
   onAddEmployee: (firstName: string, lastName: string, department: string) => void;
-  departments: typeof departmentData;
+  departments: Department[];
 }
 
 export default function Formcomponents({ onAddEmployee, departments }: FormComponentsProps) {
-  const [form, setForm] = useState({ firstName: '', lastName: '', department: '' });
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
-  };
+  const firstName = useFormInput('');
+  const lastName = useFormInput('');
+  const department = useFormInput('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const newErrors: { [key: string]: string } = {};
+    const isFirstNameValid = firstName.validate((value) =>
+      value.trim().length >= 3 ? '' : 'First Name must be at least 3 characters'
+    );
+    const isDepartmentValid = department.validate((value) =>
+      value ? '' : 'Department is required'
+    );
 
-    if (form.firstName.length < 3) {
-      newErrors.firstName = 'First Name must be at least 3 characters';
-    }
-    
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
-      onAddEmployee(form.firstName, form.lastName, form.department);
-      setForm({ firstName: '', lastName: '', department: '' });
+    if (isFirstNameValid && isDepartmentValid) {
+      onAddEmployee(firstName.value, lastName.value, department.value);
+      firstName.reset();
+      lastName.reset();
+      department.reset();
     }
   };
-
-  const errorMessage = (field: string) => errors[field] && (
-    <p className="error-message">{errors[field]}</p>
-  );
 
   return (
     <form onSubmit={handleSubmit}>
@@ -44,11 +37,13 @@ export default function Formcomponents({ onAddEmployee, departments }: FormCompo
           First Name: <input
             id="firstName"
             name="firstName"
-            value={form.firstName}
-            onChange={handleChange}
+            value={firstName.value}
+            onChange={firstName.onChange}
           />
         </label>
-        {errorMessage('firstName')}
+        {firstName.message && (
+          <p className="error-message">{firstName.message}</p>
+        )}
       </div>
       <br />
       
@@ -57,8 +52,8 @@ export default function Formcomponents({ onAddEmployee, departments }: FormCompo
           Last Name: <input
             id="lastName"
             name="lastName"
-            value={form.lastName}
-            onChange={handleChange}
+            value={lastName.value}
+            onChange={lastName.onChange}
           />
         </label>
       </div>
@@ -69,8 +64,8 @@ export default function Formcomponents({ onAddEmployee, departments }: FormCompo
         <select
           id="department"
           name="department"
-          value={form.department}
-          onChange={handleChange}
+          value={department.value}
+          onChange={department.onChange}
         >
           <option value="">Select a Department</option>
           {departments.map((department) => (
@@ -80,6 +75,9 @@ export default function Formcomponents({ onAddEmployee, departments }: FormCompo
           ))}
         </select>
       </div>
+        {department.message && (
+          <p className="error-message">{department.message}</p>
+        )}
       <br />
       
       <button type="submit">Submit</button>
