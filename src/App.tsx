@@ -4,18 +4,21 @@ import { Employees } from "./components/features/employee/Employees.tsx";
 import { Organization } from "./components/features/organization/Organization.tsx";
 import { EmployeeRepository } from "./apis/employeeRepository";
 import { EmployeeService } from "./services/employeeService";
-import { useMemo } from "react";
+import { OrganizationRepository } from "./apis/organizationRepository";
+import { OrganizationService } from "./services/organizationService";
 
 function App() {
-  const repository = useMemo(() => new EmployeeRepository(), []);
-  const service = useMemo(() => new EmployeeService(repository), [repository]);
+  const employeeRepository = new EmployeeRepository();
+  const employeeService = new EmployeeService(employeeRepository);
+  const organizationRepository = new OrganizationRepository();
+  const organizationService = new OrganizationService(organizationRepository);
 
   return (
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Navigate to="/employees" replace />} />
-          <Route path="employees" element={<Employees repository={repository} service={service} />} />
-          <Route path="organization" element={<Organization />} />
+          <Route path="employees" element={<Employees repository={employeeRepository} service={employeeService} />} />
+          <Route path="organization" element={<Organization repository={organizationRepository} service={organizationService} />} />
         </Route>
       </Routes>
   );
