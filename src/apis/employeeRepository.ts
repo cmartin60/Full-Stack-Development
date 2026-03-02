@@ -7,7 +7,7 @@ export class EmployeeRepository {
 
   constructor() {
     // Initialize with a deep copy of department data
-    this.departments = JSON.parse(JSON.stringify(departmentData));
+    this.departments = structuredClone(departmentData);
   }
 
   /**
